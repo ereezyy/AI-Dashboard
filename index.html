@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+    }
+    
+    #root {
+      height: 100vh;
+    }
+    
+    .loading-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #121212;
+    }
+    
+    .loading-logo {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 30px;
+      background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+    
+    .loading-text {
+      font-size: 18px;
+      color: #ffffff;
+      margin-top: 20px;
+    }
+    
+    .loading-bar {
+      width: 300px;
+      height: 4px;
+      background-color: #333333;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    
+    .loading-progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #6e45e2 0%, #88d3ce 100%);
+      animation: loading 3s infinite ease-in-out;
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(110, 69, 226, 0.7);
+      }
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(110, 69, 226, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(110, 69, 226, 0);
+      }
+    }
+    
+    @keyframes loading {
+      0% {
+        width: 0%;
+      }
+      50% {
+        width: 70%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div class="loading-screen">
+      <div class="loading-logo">AI</div>
+      <div class="loading-text">Loading AI Dashboard...</div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Load React app
+    window.addEventListener('DOMContentLoaded', () => {
+      // In a real build, this would load the bundled React app
+      setTimeout(() => {
+        const script = document.createElement('script');
+        script.src = './index.js';
+        document.body.appendChild(script);
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

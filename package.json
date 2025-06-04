@@ -1,0 +1,61 @@
+{
+  "name": "ai-dashboard",
+  "version": "1.0.0",
+  "description": "All-in-one AI dashboard with crypto, casino, and social media features",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": "Manus AI",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^20.0.0",
+    "electron-builder": "^23.0.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.5",
+    "axios": "^0.27.2",
+    "socket.io-client": "^4.5.1",
+    "@solana/web3.js": "^1.50.1",
+    "@solana/wallet-adapter-react": "^0.15.8",
+    "@solana/wallet-adapter-wallets": "^0.16.8",
+    "openai": "^3.2.1"
+  },
+  "build": {
+    "appId": "com.manus.ai-dashboard",
+    "productName": "AI Dashboard",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "AI Dashboard"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "build/icon.icns"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "build/icon.png"
+    }
+  }
+}
